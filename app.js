@@ -3,9 +3,7 @@ var app = express();
 
 app.use('/static', express.static('static'));
 
-app.get('/', function (req, res) {
-      res.send('Hello World!');
-});
+app.use('/', express.static('tracker'));
 
 app.listen(3000, function () {
       console.log('Example app listening on port 3000!');
