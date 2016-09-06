@@ -4,6 +4,14 @@ import {expect} from 'chai';
 import {reducer} from '../tracker/reducer.js';
 
 describe('reducer', () => {
+  it('has an initial state', () => {
+    const action = { type: 'SELECT_HERO', leader: 'SWORDCRAFT' };
+    const nextState = reducer(undefined, action);
+    expect(nextState).to.equal(fromJS({
+      hero: 'SWORDCRAFT',
+    }));
+  });
+
   it('should select a hero', () => {
     const initialState = Map();
     const action = { type: 'SELECT_HERO', leader: 'SWORDCRAFT' };

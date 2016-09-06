@@ -1,4 +1,6 @@
-export function reducer(state, action) {
+import {INITIAL_STATE} from './core.js';
+
+export function reducer(state = INITIAL_STATE, action) {
   switch(action.type) {
     case 'SELECT_HERO':
       return selectHero(state, action.leader);
