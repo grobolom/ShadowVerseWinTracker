@@ -3,9 +3,9 @@ export function reducer(state, action) {
     case 'SELECT_HERO':
       return selectHero(state, action.leader);
     case 'SELECT_VILLAIN':
-      return selectVillain(state, action.leader);
-    return state;
+      return selectVillain(state, action.leader)
   }
+  return state;
 }
 
 function selectHero(state, leader) {
