@@ -21,4 +21,22 @@ describe('reducer', () => {
       villain: 'SHADOWCRAFT',
     }));
   });
+
+  it('should tally a win', () => {
+    const initialState = Map();
+    const action = { type: 'SET_RESULT', result: 'WIN' };
+    const nextState = reducer(initialState, action);
+    expect(nextState).to.equal(fromJS({
+      result: 1,
+    }));
+  });
+
+  it('should tally a loss', () => {
+    const initialState = Map();
+    const action = { type: 'SET_RESULT', result: 'LOSE' };
+    const nextState = reducer(initialState, action);
+    expect(nextState).to.equal(fromJS({
+      result: 0,
+    }));
+  });
 });
