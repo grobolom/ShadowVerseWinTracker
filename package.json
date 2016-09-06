@@ -22,7 +22,8 @@
     "chai": "^3.5.0",
     "chai-immutable": "^1.6.0",
     "mocha": "^3.0.2",
-    "react-hot-loader": "^3.0.0-beta.3"
+    "react-hot-loader": "^3.0.0-beta.3",
+    "redux": "^3.6.0"
   },
   "babel": {
     "presets": [
