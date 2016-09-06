@@ -12,4 +12,13 @@ describe('reducer', () => {
       hero: 'SWORDCRAFT',
     }));
   });
+
+  it('should select a villain', () => {
+    const initialState = Map();
+    const action = { type: 'SELECT_VILLAIN', leader: 'SHADOWCRAFT' };
+    const nextState = reducer(initialState, action);
+    expect(nextState).to.equal(fromJS({
+      villain: 'SHADOWCRAFT',
+    }));
+  });
 });
