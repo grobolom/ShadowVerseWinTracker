@@ -15,12 +15,12 @@ module.exports = {
     extensions: ['', '.js', '.jsx']
   },
   output: {
-    path: __dirname + '/dist',
-    publicPath: '/',
+    path: __dirname + '/static',
+    publicPath: '/static/',
     filename: 'bundle.js'
   },
   devServer: {
-    contentBase: './dist',
+    contentBase: './static',
     hot: true
   },
   plugins: [
