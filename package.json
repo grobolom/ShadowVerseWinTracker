@@ -3,11 +3,11 @@
   "version": "1.0.0",
   "description": "Shadowverse Win Tracker",
   "main": "index.js",
+  "author": "@grobolom",
   "scripts": {
-    "test": "mocha --compilers js:babel-core/register --require ./test/test_helper.js --recursive ",
+    "test": "mocha --compilers js:babel-core/register --require ./test/test_helper.js 'test/**/*.@(js|jsx)'",
     "test:watch": "npm run test -- --watch"
   },
-  "author": "@grobolom",
   "license": "ISC",
   "dependencies": {
     "express": "^4.14.0",
