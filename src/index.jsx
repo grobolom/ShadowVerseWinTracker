@@ -1,12 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Tracker from './components/Tracker';
+import ResultPicker from './components/ResultPicker';
 
-const hero = 'SHADOWCRAFT';
-const villain = 'SWORDCRAFT';
-const pair = ['SHADOWCRAFT', 'BACONCRAFT']
+const selected = 'WON';
 
 ReactDOM.render(
-  <Tracker hero={hero} villain={villain} pair={pair}/>,
+  <ResultPicker selected={selected}/>,
   document.getElementById('app')
 );
