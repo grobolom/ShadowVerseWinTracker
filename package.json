@@ -35,5 +35,14 @@
       "es2015",
       "react"
     ]
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/grobolom/ShadowVerseWinTracker.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/grobolom/ShadowVerseWinTracker/issues"
+  },
+  "homepage": "https://github.com/grobolom/ShadowVerseWinTracker#readme"
 }
