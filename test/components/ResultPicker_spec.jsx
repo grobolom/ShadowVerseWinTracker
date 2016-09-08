@@ -19,4 +19,18 @@ describe('ResultPicker', () => {
     expect(buttons.length).to.equal(3);
     expect(buttons[0].className).to.equal('selected');
   });
+
+  it('should call setting the result on a click', () => {
+    let selected;
+    const setResult = (vote) => selected = vote;
+
+    const component = renderIntoDocument(
+      <ResultPicker setResult={setResult} />
+    );
+
+    const buttons = scryRenderedDOMComponentsWithTag(component, 'button');
+    Simulate.click(buttons[0]);
+
+    expect(selected).to.equal('Won');
+  });
 });
