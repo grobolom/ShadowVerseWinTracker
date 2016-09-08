@@ -1,11 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Voting from './components/Tracker';
+import Tracker from './components/Tracker';
 
 const hero = 'SHADOWCRAFT';
 const villain = 'SWORDCRAFT';
+const pair = ['SHADOWCRAFT', 'BACONCRAFT']
 
 ReactDOM.render(
-  <Tracker hero={hero} villain={villain} />,
+  <Tracker hero={hero} villain={villain} pair={pair}/>,
   document.getElementById('app')
 );
