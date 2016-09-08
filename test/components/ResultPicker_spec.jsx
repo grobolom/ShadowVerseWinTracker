@@ -29,8 +29,8 @@ describe('ResultPicker', () => {
     );
 
     const buttons = scryRenderedDOMComponentsWithTag(component, 'button');
-    Simulate.click(buttons[0]);
+    Simulate.click(buttons[1]);
 
-    expect(selected).to.equal('Won');
+    expect(selected).to.equal('Lost');
   });
 });
