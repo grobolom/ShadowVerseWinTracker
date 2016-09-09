@@ -6,7 +6,7 @@ if (module.hot) {
   module.hot.accept();
 }
 
-const selected = 'WON';
+require('./style.css');
 
 ReactDOM.render(
   <WinTracker />,
