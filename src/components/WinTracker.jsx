@@ -3,7 +3,7 @@ import ResultPicker from './ResultPicker';
 
 export default React.createClass({
   render: () => {
-    return <div class='container'>
+    return <div className='container'>
       <ResultPicker />
     </div>
   }

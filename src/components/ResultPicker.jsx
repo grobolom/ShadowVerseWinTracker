@@ -1,7 +1,7 @@
 import React from 'react';
 
 export default React.createClass({
-  getButtons: function() { return ['Won','Lost','D/C']; },
+  getButtons: function() { return ['Won','Lost','DC']; },
   render: function() {
     return <div className="result-picker">
       {this.getButtons().map(name =>
