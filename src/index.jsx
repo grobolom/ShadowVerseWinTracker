@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import ResultPicker from './components/ResultPicker';
+import WinTracker from './components/WinTracker';
 
 const selected = 'WON';
 
 ReactDOM.render(
-  <ResultPicker selected={selected}/>,
+  <WinTracker />,
   document.getElementById('app')
 );
