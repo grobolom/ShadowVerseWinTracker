@@ -11,4 +11,24 @@ describe('root reducer', () => {
       'result': 'Won',
     }));
   });
+
+  it('should select a hero', () => {
+    const initialState = Map();
+    const action = { 'type': 'SELECT_HERO', 'leader': 'Forestcraft' }
+    const nextState = reducer(initialState, action);
+
+    expect(nextState).to.equal(fromJS({
+      'hero': 'Forestcraft',
+    }))
+  });
+
+  it('should select a villain', () => {
+    const initialState = Map();
+    const action = { 'type': 'SELECT_VILLAIN', 'leader': 'Shadowcraft' }
+    const nextState = reducer(initialState, action);
+
+    expect(nextState).to.equal(fromJS({
+      'hero': 'Shadowcraft',
+    }))
+  })
 });
