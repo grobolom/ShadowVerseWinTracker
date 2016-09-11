@@ -28,7 +28,7 @@ describe('root reducer', () => {
     const nextState = reducer(initialState, action);
 
     expect(nextState).to.equal(fromJS({
-      'hero': 'Shadowcraft',
+      'villain': 'Shadowcraft',
     }))
   })
 });
