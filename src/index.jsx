@@ -8,7 +8,11 @@ if (module.hot) {
 
 require('./style.css');
 
+const setResult = (selected) => {
+  console.log(selected);
+}
+
 ReactDOM.render(
-  <WinTracker />,
+  <WinTracker setResult={setResult} />,
   document.getElementById('app')
 );

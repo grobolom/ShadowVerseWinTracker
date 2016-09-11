@@ -2,9 +2,11 @@ import React from 'react';
 import ResultPicker from './ResultPicker';
 
 export default React.createClass({
-  render: () => {
+  render: function() {
     return <div className='container'>
-      <ResultPicker />
+      <ResultPicker
+        setResult={this.props.setResult}
+      />
     </div>
   }
 });
