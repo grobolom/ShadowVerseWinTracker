@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import WinTracker from './components/WinTracker';
 
+// hotmodule reloading fix
 if (module.hot) {
   module.hot.accept();
 }
