@@ -1,5 +1,5 @@
 import React from 'react';
-import ResultPicker from './ResultPicker';
+import {ResultPickerComponent} from './ResultPicker';
 import HeroPicker from './HeroPicker';
 
 export default React.createClass({
@@ -7,9 +7,7 @@ export default React.createClass({
     return <div className='container'>
       <HeroPicker header={'Hero'}/>
       <HeroPicker header={'Villain'}/>
-      <ResultPicker
-        setResult={this.props.setResult}
-      />
+      <ResultPickerComponent />
     </div>
   }
 });
