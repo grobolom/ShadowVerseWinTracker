@@ -8,13 +8,13 @@ export const ResultPicker = React.createClass({
   render: function() {
     return <div className="result-picker">
       <h1>{this.props.selected}</h1>
-      {this.getButtons().map(name =>
+      {this.getButtons().map(result =>
         <button
-          className={name == this.props.selected ? 'selected' : ''}
-          key={name}
-          onClick={() => { this.props.setResult(name); }}
+          className={result == this.props.selected ? 'selected' : ''}
+          key={result}
+          onClick={() => { this.props.setResult(result); }}
           >
-          {name}
+          {result}
         </button>
       )}
     </div>;
