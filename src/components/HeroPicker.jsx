@@ -16,7 +16,9 @@ export default React.createClass({
     return <div>
       <h1>{this.props.header}</h1>
       {this.getLeaders().map(name =>
-        <button className='leader'>{name}</button>
+        <button
+          className='leader'
+          key={this.props.header + '_' + name}>{name}</button>
       )}
     </div>
   }
