@@ -1,4 +1,6 @@
-export default (state, action) => {
+import {Map} from 'immutable';
+
+export default (state = Map(), action) => {
   switch (action.type) {
     case 'SET_RESULT':
       return setResult(state, action.result);

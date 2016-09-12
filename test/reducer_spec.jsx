@@ -5,8 +5,16 @@ import {List, Map, fromJS} from 'immutable';
 describe('root reducer', () => {
   it('should select a result', () => {
     const initialState = Map();
-    const action = { 'type': 'SET_RESULT', 'result': 'Won' }
+    const action = { 'type': 'SET_RESULT', 'result': 'Won' };
     const nextState = reducer(initialState, action);
+    expect(nextState).to.equal(fromJS({
+      'result': 'Won',
+    }));
+  });
+
+  it('should set the state with an undefined initial state', () => {
+    const action = { type: 'SET_RESULT', 'result': 'Won' };
+    const nextState = reducer(undefined, action);
     expect(nextState).to.equal(fromJS({
       'result': 'Won',
     }));
