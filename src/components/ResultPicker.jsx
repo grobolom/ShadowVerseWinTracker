@@ -1,6 +1,9 @@
 import React from 'react';
+import {connect} from 'react-redux';
 
-export default React.createClass({
+import * as actionCreators from '../action_creators.js';
+
+export const ResultPicker = React.createClass({
   getButtons: function() { return ['Won','Lost','DC']; },
   render: function() {
     return <div className="result-picker">
@@ -17,3 +20,14 @@ export default React.createClass({
     </div>;
   }
 });
+
+const mapStateToProps = function(state) {
+  return {
+    selected: state.get('selected')
+  };
+};
+
+export const ResultPickerComponent = connect(
+  mapStateToProps,
+  actionCreators
+)(ResultPicker);

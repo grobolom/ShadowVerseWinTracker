@@ -1,4 +1,4 @@
-import ResultPicker from '../../src/components/ResultPicker';
+import {ResultPicker} from '../../src/components/ResultPicker';
 
 import React from 'react';
 import ReactDOM from 'react-dom';
