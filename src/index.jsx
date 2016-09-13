@@ -11,6 +11,7 @@ if (module.hot) {
   module.hot.accept();
 }
 
+require('./normalize.css');
 require('./style.css');
 
 const store = createStore(reducer);
