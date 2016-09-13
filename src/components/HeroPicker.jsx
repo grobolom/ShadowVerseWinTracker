@@ -1,6 +1,9 @@
 import React from 'react';
+import {connect} from 'react-redux';
 
-export default React.createClass({
+import * as actionCreators from '../action_creators';
+
+export const HeroPicker = React.createClass({
   getLeaders: function() {
     return [
       'Forestcraft',
@@ -18,8 +21,17 @@ export default React.createClass({
       {this.getLeaders().map(name =>
         <button
           className='leader'
-          key={this.props.player + '_' + name}>{name}</button>
+          key={this.props.player + '_' + name}
+          onClick={() => {this.props.selectLeader(this.props.player, name)}}
+        >
+          {name}
+        </button>
       )}
     </div>
   }
 });
+
+export const HeroPickerComponent = connect(
+  undefined,
+  actionCreators
+)(HeroPicker);
