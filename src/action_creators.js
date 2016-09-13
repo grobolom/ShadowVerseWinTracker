@@ -5,16 +5,10 @@ export function setResult(result) {
   }
 }
 
-export function selectHero(leader) {
+export function selectLeader(player, leader) {
+  const type = (player === 'Hero') ? 'SELECT_HERO' : 'SELECT_VILLAIN';
   return {
-    'type': 'SELECT_HERO',
-    leader
-  }
-}
-
-export function selectVillain(leader) {
-  return {
-    'type': 'SELECT_VILLAIN',
-    leader
-  }
+    type,
+    leader,
+  };
 }
