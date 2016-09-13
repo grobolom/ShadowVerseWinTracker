@@ -4,13 +4,12 @@ import {connect} from 'react-redux';
 import * as actionCreators from '../action_creators.js';
 
 export const ResultPicker = React.createClass({
-  getButtons: function() { return ['Won','Lost','DC']; },
+  getButtons: function() { return ['Won','Lost','D/C']; },
   render: function() {
     return <div className="result-picker">
-      <h1>{this.props.selected}</h1>
       {this.getButtons().map(result =>
         <button
-          className={result == this.props.selected ? 'selected' : ''}
+          className={result == this.props.selected ? 'selected button-primary' : ''}
           key={result}
           onClick={() => { this.props.setResult(result); }}
           >
@@ -23,7 +22,7 @@ export const ResultPicker = React.createClass({
 
 const mapStateToProps = function(state) {
   return {
-    selected: state.get('selected')
+    selected: state.get('result')
   };
 };
 

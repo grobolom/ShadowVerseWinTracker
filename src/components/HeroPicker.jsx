@@ -15,12 +15,23 @@ export const HeroPicker = React.createClass({
       'Havencraft',
     ]
   },
+  getSelected: function(player, name) {
+    if (player === 'Hero' && name == this.props.hero) {
+      return 'button-primary';
+    }
+
+    if (player === 'Villain' && name == this.props.villain) {
+      return 'button-primary';
+    }
+
+    return '';
+  },
   render: function() {
     return <div>
       <h1>{this.props.player}</h1>
       {this.getLeaders().map(name =>
         <button
-          className='leader'
+          className={'leader ' + this.getSelected(this.props.player, name)}
           key={this.props.player + '_' + name}
           onClick={() => {this.props.selectLeader(this.props.player, name)}}
         >
@@ -31,7 +42,14 @@ export const HeroPicker = React.createClass({
   }
 });
 
+const mapStateToProps = function(state) {
+  return {
+    hero: state.get('hero'),
+    villain: state.get('villain'),
+  };
+};
+
 export const HeroPickerComponent = connect(
-  undefined,
+  mapStateToProps,
   actionCreators
 )(HeroPicker);
