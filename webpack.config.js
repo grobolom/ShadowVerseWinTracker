@@ -9,8 +9,8 @@ module.exports = {
   module: {
     loaders: [
       { test: /\.jsx?$/, exclude: /node_modules/, loader: 'babel' },
-      { test: /\.css?$/, loader: 'style!css!autoprefixer?browsers=last 2 versions' }
-      { test: /\.(png|jpg)$/, loader: 'url-loader?limit=8192' }
+      { test: /\.css?$/, loader: 'style!css!autoprefixer?browsers=last 2 versions' },
+      { test: /\.(png|jpg)$/, loader: 'url-loader?limit=8192' },
     ]
   },
   resolve: {
