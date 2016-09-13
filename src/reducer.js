@@ -1,6 +1,7 @@
 import {Map} from 'immutable';
 
 export default (state = Map(), action) => {
+  console.log(action);
   switch (action.type) {
     case 'SET_RESULT':
       return setResult(state, action.result);
