@@ -12,6 +12,7 @@ if (module.hot) {
 }
 
 require('./normalize.css');
+require('./skeleton.css');
 require('./style.css');
 
 const store = createStore(reducer);
