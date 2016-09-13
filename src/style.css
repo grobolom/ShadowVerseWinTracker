@@ -1,4 +1,26 @@
-button.selected {
-  border: 1px solid red;
-  background-image: url('./img/Shadowcraft-icon.png');
+.section {
+  padding: 4rem 0 3rem;
 }
+
+.leader {
+  width: 54px;
+  height: 54px;
+  overflow: hidden;
+  padding: 2px;
+  margin: 2px;
+  border: 1px solid #CCC;
+}
+
+.leader:before {
+  display: inline-block;
+  font-size: 0;
+  line-height: 0;
+}
+
+  .shadowcraft:before { content: url('./img/shadowcraft-icon.png'); }
+  .forestcraft:before { content: url('./img/forestcraft-icon.png'); }
+  .bloodcraft:before { content: url('./img/bloodcraft-icon.png'); }
+  .dragoncraft:before { content: url('./img/dragoncraft-icon.png'); }
+  .runecraft:before { content: url('./img/runecraft-icon.png'); }
+  .swordcraft:before { content: url('./img/swordcraft-icon.png'); }
+  .havencraft:before { content: url('./img/havencraft-icon.png'); }
