@@ -38,5 +38,21 @@ describe('root reducer', () => {
     expect(nextState).to.equal(fromJS({
       'villain': 'Shadowcraft',
     }))
-  })
+  });
+
+  it('should save a valid game result', () => {
+    const initialState = Map({
+      'hero': 'forestcraft',
+      'villain': 'shadowcraft',
+      'result': 'lost',
+    });
+    const action = { 'type': 'SAVE_RESULT' };
+    const nextState = reducer(initialState, action);
+
+    expect(nextState.get('games')).to.equal(fromJS([{
+      'hero': 'forestcraft',
+      'villain': 'shadowcraft',
+      'result': 'lost',
+    }]));
+  });
 });
