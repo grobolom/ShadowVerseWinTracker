@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 import * as actionCreators from '../action_creators.js';
 
 export const ResultPicker = React.createClass({
-  getButtons: function() { return ['Won','Lost','D/C']; },
+  getButtons: function() { return ['won','lost','d/c']; },
   render: function() {
     return <div className="result-picker">
       {this.getButtons().map(result =>

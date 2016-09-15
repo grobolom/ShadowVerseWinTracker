@@ -14,7 +14,7 @@ export default (state = Map(), action) => {
 };
 
 function setResult(state, result) {
-  if (result === 'Won' || result === 'Lost' || result === 'D/C') {
+  if (result === 'won' || result === 'lost' || result === 'd/c') {
     return state.set('result', result);
   }
   return state;
