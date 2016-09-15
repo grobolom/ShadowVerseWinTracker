@@ -6,7 +6,10 @@ import * as actionCreators from '../action_creators';
 export const ActionBar = React.createClass({
   render: function() {
     return <div className='section row'>
-      <button className='button'>save</button>
+      <button
+        className='button'
+        onClick={() => this.props.save()}
+      >save</button>
       <button className='button'>stats</button>
     </div>
   }

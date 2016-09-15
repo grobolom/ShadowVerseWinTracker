@@ -12,3 +12,7 @@ export function selectLeader(player, leader) {
     leader,
   };
 }
+
+export function save() {
+  return { type: 'SAVE_RESULT' };
+}
