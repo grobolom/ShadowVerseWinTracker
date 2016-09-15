@@ -28,7 +28,10 @@ export const HeroPicker = React.createClass({
   },
   render: function() {
     return <div className='section row'>
-      <h2>{this.props.player}</h2>
+      <div className='four columns'>
+        <button className=''>{this.props.player}</button>
+      </div>
+      <div className='eleven columns'>
       {this.getLeaders().map(name =>
         <button
           className={'leader ' + this.getSelected(this.props.player, name)}
@@ -36,6 +39,7 @@ export const HeroPicker = React.createClass({
           onClick={() => {this.props.selectLeader(this.props.player, name)}}
         >&nbsp;</button>
       )}
+      </div>
     </div>
   }
 });
