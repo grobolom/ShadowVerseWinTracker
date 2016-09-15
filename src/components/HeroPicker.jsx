@@ -28,10 +28,10 @@ export const HeroPicker = React.createClass({
   },
   render: function() {
     return <div className='section row'>
-      <div className='four columns'>
+      <div className='three columns'>
         <button className=''>{this.props.player}</button>
       </div>
-      <div className='eleven columns'>
+      <div className='nine columns'>
       {this.getLeaders().map(name =>
         <button
           className={'leader ' + this.getSelected(this.props.player, name)}
