@@ -2,6 +2,10 @@
   padding: 2rem 0 1rem;
 }
 
+.button {
+  margin-right: 2rem;
+}
+
 .leader {
   width: 54px;
   height: 54px;
@@ -9,6 +13,10 @@
   padding: 2px;
   margin: 2px;
   border: 1px solid #CCC;
+}
+
+.selected {
+  background: #C3C3C3;
 }
 
 .leader:before {

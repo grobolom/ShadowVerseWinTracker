@@ -17,11 +17,11 @@ export const HeroPicker = React.createClass({
   },
   getSelected: function(player, name) {
     if (player === 'Hero' && name == this.props.hero) {
-      return 'button-primary selected ' + name;
+      return 'selected ' + name;
     }
 
     if (player === 'Villain' && name == this.props.villain) {
-      return 'button-primary selected ' + name;
+      return 'selected ' + name;
     }
 
     return name;

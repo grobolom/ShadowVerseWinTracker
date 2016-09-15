@@ -9,7 +9,7 @@ export const ResultPicker = React.createClass({
     return <div className="result-picker">
       {this.getButtons().map(result =>
         <button
-          className={result == this.props.selected ? 'selected button-primary' : ''}
+          className={result == this.props.selected ? 'selected button' : 'button'}
           key={result}
           onClick={() => { this.props.setResult(result); }}
           >
