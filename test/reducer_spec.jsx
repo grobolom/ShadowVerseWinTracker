@@ -55,4 +55,18 @@ describe('root reducer', () => {
       'result': 'lost',
     }]));
   });
+
+  it('should reset the state partially after saving', () => {
+    const initialState = Map({
+      'hero': 'forestcraft',
+      'villain': 'shadowcraft',
+      'result': 'lost',
+    });
+    const action = { 'type': 'SAVE_RESULT' };
+    const nextState = reducer(initialState, action);
+
+    expect(nextState.get('hero')).to.equal('forestcraft');
+    expect(nextState.get('villain')).to.equal(undefined);
+    expect(nextState.get('result')).to.equal(undefined);
+  });
 });

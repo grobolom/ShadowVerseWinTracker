@@ -35,5 +35,7 @@ function saveResults(state) {
     'villain': state.get('villain'),
     'result': state.get('result'),
   });
-  return state.update('games', List(), g => g.push(game))
+  return state.set('villain', undefined)
+              .set('result', undefined)
+              .update('games', List(), g => g.push(game))
 }
