@@ -12,12 +12,12 @@ import {expect} from 'chai';
 describe('ResultPicker', () => {
   it('should display a selected win/loss/disconnect', () => {
     const component = renderIntoDocument(
-      <ResultPicker selected={"Won"} />
+      <ResultPicker selected={"won"} />
     );
 
     const buttons = scryRenderedDOMComponentsWithTag(component, 'button');
     expect(buttons.length).to.equal(3);
-    expect(buttons[0].className).to.equal('selected');
+    expect(buttons[0].className).to.have.string('selected');
   });
 
   it('should call setting the result on a click', () => {
@@ -31,6 +31,6 @@ describe('ResultPicker', () => {
     const buttons = scryRenderedDOMComponentsWithTag(component, 'button');
     Simulate.click(buttons[1]);
 
-    expect(selected).to.equal('Lost');
+    expect(selected).to.equal('lost');
   });
 });
