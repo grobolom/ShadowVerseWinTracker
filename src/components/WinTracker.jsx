@@ -2,6 +2,7 @@ import React from 'react';
 import {ResultPickerComponent} from './ResultPicker';
 import {HeroPickerComponent} from './HeroPicker';
 import {ActionBarComponent} from './ActionBar';
+import {StatDisplayComponent} from './StatDisplay';
 
 export default React.createClass({
   render: function() {
@@ -10,6 +11,7 @@ export default React.createClass({
       <HeroPickerComponent player={'Villain'}/>
       <ResultPickerComponent />
       <ActionBarComponent />
+      <StatDisplayComponent />
     </div>
   }
 });
