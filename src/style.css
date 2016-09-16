@@ -1,3 +1,14 @@
+/* basic skeleton additions */
+
+button[disabled] {
+    background: #ddd;
+    border-color: #ddd;
+    text-shadow: none;
+    cursor: auto;
+}
+
+/* custom stuff */
+
 .section {
   padding: 2rem 0 1rem;
 }
