@@ -7,11 +7,9 @@ import * as actionCreators from '../action_creators';
 export const StatDisplay = React.createClass({
   getResults: function() {
     return this.props.games ? this.props.games.reduce((reduction, current) => {
-      return reduction.push(List([
-        current.get('hero'),
-        current.get('villain'),
-        current.get('result'),
-      ]));
+      const key = current.get('hero') + '-' current.get('villain');
+      const result = current.get('result');
+      return reduction.update(key, 0, wins => wins += (result === 'won' ? 1 : 0));
     }, List()) : '';
   },
   render: function() {
