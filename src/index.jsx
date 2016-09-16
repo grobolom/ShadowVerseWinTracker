@@ -19,7 +19,7 @@ const store = createStore(reducer);
 
 ReactDOM.render(
   <Provider store={store}>
-    <WinTracker setResult={setResult} />
+    <WinTracker />
   </Provider>,
   document.getElementById('app')
 );
