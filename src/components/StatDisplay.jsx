@@ -12,8 +12,8 @@ export const StatDisplay = React.createClass({
   render: function() {
     return <div className="something">
       <ul>
-      {this.getResults().entrySeq().map((key, result) =>
-        <li key={key}>{key} - { result }</li>
+      {this.getResults().entrySeq().map(result =>
+        <li key={ result[0] }>{ result[0] } - { result[1] }</li>
       )}
       </ul>
     </div>;
