@@ -16,14 +16,6 @@ require('./skeleton.css');
 require('./style.css');
 
 const store = createStore(reducer);
-store.dispatch({
-  'type': 'SELECT_HERO',
-  'leader': 'Shadowcraft',
-});
-
-const setResult = (selected) => {
-  console.log(selected);
-}
 
 ReactDOM.render(
   <Provider store={store}>
