@@ -14,9 +14,9 @@ describe('game reducer', () => {
     ]);
     const reduced = reduceResults(games);
     expect(reduced).to.equal(fromJS({
-      'a-b': 2,
-      'a-c': 1,
-      'c-b': 1,
+      'a - b': 2,
+      'a - c': 1,
+      'c - b': 1,
     }));
   });
 });
