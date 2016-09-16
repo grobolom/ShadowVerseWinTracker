@@ -12,4 +12,14 @@ describe('game reducer', () => {
     const reduced = reduceResults(games);
     expect(reduced.get('a - b').get('wins')).to.equal(2);
   });
+
+  it('should calculate disconnects for a leader pair', () => {
+    const games = fromJS([
+      { 'hero': 'a', 'villain': 'b', 'result': 'won' },
+      { 'hero': 'a', 'villain': 'b', 'result': 'lost' },
+      { 'hero': 'a', 'villain': 'b', 'result': 'd/c' },
+    ]);
+    const reduced = reduceResults(games);
+    expect(reduced.get('a - b').get('d/cs')).to.equal(1);
+  });
 });
