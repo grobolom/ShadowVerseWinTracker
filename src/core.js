@@ -4,6 +4,9 @@ export function reduceResults(games) {
   return games.reduce((reduction, current) => {
     const key = current.get('hero') + ' - ' + current.get('villain');
     const result = current.get('result');
-    return reduction.updateIn([key, 'wins'], 0, wins => wins += (result === 'won' ? 1 : 0));
+    return reduction.update(key, Map(), pair => {
+      if (result === 'won') return pair.update('wins', 0, g => g += 1);
+      if (result === 'lost') return pair.update('losses', 0, g => g += 1);
+    });
   }, Map());
 };
