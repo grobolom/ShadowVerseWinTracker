@@ -22,11 +22,11 @@ const data = [
   { 'x': '0', 'y': '2', 'percentage': '10', 'record': '3-1-0'},
   { 'x': '1', 'y': '2', 'percentage': '10', 'record': '1-7-0'},
   { 'x': '2', 'y': '2', 'percentage': '50', 'record': '3-4-2'},
-  { 'x': '3', 'y': '2', 'percentage': '50', 'record': '7-8-0'},
+  { 'x': '4', 'y': '2', 'percentage': '50', 'record': '7-8-0'},
   { 'x': '0', 'y': '3', 'percentage': '90', 'record': '6-1-0'},
   { 'x': '1', 'y': '3', 'percentage': '10', 'record': '2-1-1'},
-  { 'x': '2', 'y': '3', 'percentage': '75', 'record': '6-2-0'},
-  { 'x': '3', 'y': '3', 'percentage': '75', 'record': '7-3-3'},
+  { 'x': '2', 'y': '5', 'percentage': '75', 'record': '6-2-0'},
+  { 'x': '6', 'y': '2', 'percentage': '75', 'record': '7-3-3'},
 ];
 
 export const WinGrid = React.createClass({
@@ -37,19 +37,29 @@ export const WinGrid = React.createClass({
         {leaders.map((v, k) =>
           <text
             textAnchor='middle'
-            x={ k * 50 + 73 }
-            y={ 40 }>{ v }</text>
+            x={ k * 50 + 75 }
+            y={ 40 }
+            key={ 'x' + v }
+            >{ v }</text>
         )}
-        </g>
+        {leaders.map((v, k) =>
+          <text
+            textAnchor='middle'
+            x={ 32 }
+            y={ k * 50 + 81 }
+            key={ 'y' + v }
+            >{ v }</text>
+        )}
         {data.map(d =>
-          <g>
+          <g key={ d.x + '-' + d.y }>
             <rect
               className='squares'
-              width='49px'
-              height='49px'
+              width='50px'
+              height='50px'
               x={ d.x * 50 + 50 }
               y={ d.y * 50 + 50 }
-              style={{ fill: colors[d.percentage] }}></rect>
+              style={{ fill: colors[d.percentage] }}
+              ></rect>
             <text
               textAnchor='middle'
               dx={ d.x * 50 + 73 }
@@ -63,6 +73,7 @@ export const WinGrid = React.createClass({
               >{ d.record }</text>
           </g>
         )}
+        </g>
       </svg>
     </div>
   }
