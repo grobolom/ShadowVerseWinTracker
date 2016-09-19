@@ -72,7 +72,7 @@ import {List, Map} from 'immutable';
 
 export const WinGrid = React.createClass({
   render: function() {
-    return <div class='win-grid'>
+    return <div className='win-grid'>
       <svg height='200px' width='200px'>
         {data.map(d =>
           <g>
