@@ -1,12 +1,14 @@
+import React from 'react';
+import {List, Map} from 'immutable';
+
 const colors = {
   '90': '#009c1a',
   '75': '#22b600',
   '50': '#26cc00',
   '25': '#7be382',
   '10': '#d2f2d4',
-  'na': '#',
+  'na': '#000000',
 }
-
 const leaders = { 'fo': 1, 'sw': 2, 'ru': 3, 'dr': 4, 'sh': 5, 'bl': 6, 'ha': 7 }
 const data = [
   { 'x': '0', 'y': '0', 'percentage': '25', 'record': '1-3-0'},
@@ -27,66 +29,29 @@ const data = [
   { 'x': '3', 'y': '3', 'percentage': '75', 'record': '7-3-3'},
 ];
 
-/*
-var div = d3.select("body")
-        .append("div")
-        .style("position", "fixed")
-        .style("top", 10 + "px")
-        .style("left", 10 + "px")
-        .style("width", 200 + "px")
-        .style("height", 200 + "px")
-        .style("background-color", "#BBBBBB");
-
-var svg = div.append('svg')
-      .attr('width', '200px')
-      .attr('height', '200px')
-      .selectAll('.squares')
-      .data(data)
-    .enter()
-      .append('g');
-
-    svg.append('rect')
-      .style('class', 'squares')
-      .attr('width', '49px')
-      .attr('height', '49px')
-      .attr('x', function(d) { return d.x * 50; })
-      .attr('y', function(d) { return d.y * 50; })
-      .style('fill', function(d) { return colors[d.percentage]; })
-      .style('border-right', '1px solid black')
-      .style('border-bottom', '1px solid black')
-      .style('color', '#FFFFFF');
-
-    svg.append('text')
-      .style('font-size', '12')
-      .style('font-family', 'courier')
-      .style('stroke', '#333333')
-      .style('stroke-width', 0.1)
-      .attr('text-anchor', 'middle')
-      .attr('dx', function(d) { return d.x * 50 + 25; })
-      .attr('dy', function(d) { return d.y * 50 + 40; })
-      .text(function(d) { return d.record; });
-*/
-
-import React from 'react';
-import {List, Map} from 'immutable';
-
 export const WinGrid = React.createClass({
   render: function() {
     return <div className='win-grid'>
-      <svg height='200px' width='200px'>
+      <svg height='400px' width='400px'>
         {data.map(d =>
           <g>
             <rect
               className='squares'
               width='49px'
               height='49px'
-              x={ d.x * 50 }
-              y={ d.y * 50 }
+              x={ d.x * 50 + 50 }
+              y={ d.y * 50 + 50 }
               style={{ fill: colors[d.percentage] }}></rect>
             <text
               textAnchor='middle'
-              dx={ d.x * 50 + 20 }
-              dy={ d.y * 50 + 40 }
+              dx={ d.x * 50 + 73 }
+              dy={ d.y * 50 + 90 }
+              style={{
+                stroke: '#333333',
+                strokeWidth: 0.1,
+                fontSize: '1.3rem',
+                fontFamily: 'courier',
+              }}
               >{ d.record }</text>
           </g>
         )}
