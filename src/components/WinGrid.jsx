@@ -27,6 +27,7 @@ const data = [
   { 'x': '3', 'y': '3', 'percentage': '75', 'record': '7-3-3'},
 ];
 
+/*
 var div = d3.select("body")
         .append("div")
         .style("position", "fixed")
@@ -64,3 +65,32 @@ var svg = div.append('svg')
       .attr('dx', function(d) { return d.x * 50 + 25; })
       .attr('dy', function(d) { return d.y * 50 + 40; })
       .text(function(d) { return d.record; });
+*/
+
+import React from 'react';
+import {List, Map} from 'immutable';
+
+export const WinGrid = React.createClass({
+  render: function() {
+    return <div class='win-grid'>
+      <svg height='200px' width='200px'>
+        {data.map(d =>
+          <g>
+            <rect
+              className='squares'
+              width='49px'
+              height='49px'
+              x={ d.x * 50 }
+              y={ d.y * 50 }
+              style={{ fill: colors[d.percentage] }}></rect>
+            <text
+              textAnchor='middle'
+              dx={ d.x * 50 + 20 }
+              dy={ d.y * 50 + 40 }
+              >{ d.record }</text>
+          </g>
+        )}
+      </svg>
+    </div>
+  }
+});
