@@ -9,7 +9,7 @@ const colors = {
   '10': '#d2f2d4',
   'na': '#000000',
 }
-const leaders = { 'fo': 1, 'sw': 2, 'ru': 3, 'dr': 4, 'sh': 5, 'bl': 6, 'ha': 7 }
+const leaders = [ 'fo', 'sw', 'ru', 'dr', 'sh', 'bl', 'ha', ];
 const data = [
   { 'x': '0', 'y': '0', 'percentage': '25', 'record': '1-3-0'},
   { 'x': '1', 'y': '0', 'percentage': '10', 'record': '1-9-0'},
@@ -33,6 +33,14 @@ export const WinGrid = React.createClass({
   render: function() {
     return <div className='win-grid'>
       <svg height='400px' width='400px'>
+        <g>
+        {leaders.map((v, k) =>
+          <text
+            textAnchor='middle'
+            x={ k * 50 + 73 }
+            y={ 40 }>{ v }</text>
+        )}
+        </g>
         {data.map(d =>
           <g>
             <rect
