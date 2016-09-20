@@ -1,4 +1,4 @@
-import {Map} from 'immutable';
+import {List, Map, fromJS} from 'immutable';
 
 export function reduceResults(games) {
   return games.reduce((reduction, current) => {
@@ -33,4 +33,18 @@ export function getRecordColor(wins, losses) {
         winBucket = 1 + (rate - remainder) / 20;
 
   return colors[winBucket];
+}
+
+const leaders = fromJS(['fo','sw','ru','sh','bl','dr','ha']);
+
+function buildGrid(leaders) {
+  return leaders.reduce(( reduction, value ) => {
+    return reduction.set(value, leaders.reduce(( r, v ) => {
+      return r.set(v, Map());
+    }, Map()));
+  }, Map());
+}
+
+export function getWinMatrix(games) {
+  return buildGrid(leaders);
 }

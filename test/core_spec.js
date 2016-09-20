@@ -61,9 +61,9 @@ describe('record color calculator', () => {
     it('should create entries for all leaders', () => {
       const games = [];
       const matrix = getWinMatrix(games);
-      expect(matrix.length()).to.equal(7);
+      expect(matrix.size).to.equal(7);
       // this is bad!!! magic numbers/figures
-      expect(matrix.get('fo').length()).to.equal(7);
+      expect(matrix.get('ha').size).to.equal(7);
     });
   });
 });
