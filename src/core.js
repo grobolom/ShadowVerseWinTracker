@@ -45,7 +45,7 @@ function buildGrid(leaders) {
   }, Map());
 }
 
-export function getWinMatrix(games) {
+export function getWinMatrix(games = List()) {
   let grid = buildGrid(leaders);
   games.map(g => {
     grid = grid.updateIn([g.get('hero'), g.get('villain')], result => {
