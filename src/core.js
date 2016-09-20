@@ -13,3 +13,24 @@ export function reduceResults(games) {
     });
   }, Map());
 };
+
+const colors = {
+  '5': '#009c1a',
+  '4': '#22b600',
+  '3': '#26cc00',
+  '2': '#7be382',
+  '1': '#d2f2d4',
+  'na': '#e1e1e1',
+}
+
+export function getRecordColor(wins, losses) {
+  const total = wins + losses;
+  if (wins == 0) return colors['na']; // this covers total == 0 also
+  if (losses == 0) return colors['5'];
+
+  const rate = (100 * wins / total),
+        remainder = rate % 20,
+        winBucket = 1 + (rate - remainder) / 20;
+
+  return colors[winBucket];
+}
