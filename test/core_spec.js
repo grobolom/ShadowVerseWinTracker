@@ -65,5 +65,15 @@ describe('record color calculator', () => {
       // this is bad!!! magic numbers/figures
       expect(matrix.get('ha').size).to.equal(7);
     });
+
+    it('should fill entries with their wins and losses', () => {
+      const games = fromJS([
+        { 'hero': 'ha', 'villain': 'fo', 'result': 'won' },
+        { 'hero': 'ha', 'villain': 'fo', 'result': 'lost' },
+        { 'hero': 'ha', 'villain': 'fo', 'result': 'won' },
+      ]);
+      const matrix = getWinMatrix(games);
+      expect(matrix.get('ha').get('fo')).to.equal(fromJS([2, 1]));
+    });
   });
 });
