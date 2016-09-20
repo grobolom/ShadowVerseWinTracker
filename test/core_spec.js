@@ -1,5 +1,5 @@
 import {expect} from 'chai';
-import {reduceResults, getRecordColor} from '../src/core.js';
+import {reduceResults, getRecordColor, getWinMatrix} from '../src/core.js';
 import {List, Map, fromJS} from 'immutable';
 
 describe('game reducer', () => {
@@ -55,5 +55,15 @@ describe('record color calculator', () => {
     const color = getRecordColor(wins, losses);
     expect(color).to.have.length(7);
     expect(color).to.match(/^#/);
+  });
+
+  describe('win matrix builder', () => {
+    it('should create entries for all leaders', () => {
+      const games = [];
+      const matrix = getWinMatrix(games);
+      expect(matrix.length()).to.equal(7);
+      // this is bad!!! magic numbers/figures
+      expect(matrix.get('fo').length()).to.equal(7);
+    });
   });
 });
