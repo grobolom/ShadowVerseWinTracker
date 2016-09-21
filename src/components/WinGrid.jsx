@@ -1,61 +1,68 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {List, Map, Range} from 'immutable';
+import {List, Map, Range, fromJS} from 'immutable';
 
 import * as actionCreators from '../action_creators';
-import {getRecordColor, getWinMatrix} from '../core';
+import {getRecordColor, reduceResults} from '../core';
 
-const leaders = [ 'fo', 'sw', 'ru', 'dr', 'sh', 'bl', 'ha', ];
+const leaders = fromJS({
+  'forestcraft': 1,
+  'swordcraft': 2,
+  'runecraft': 3,
+  'dragoncraft': 4,
+  'shadowcraft': 5,
+  'bloodcraft': 6,
+  'havencraft': 7,
+});
 
 export const WinGrid = React.createClass({
   getData: function() {
-    return getWinMatrix(this.props.games);
+    return reduceResults(this.props.games).toList();
   },
+  getX: function(leader) { return leaders.get(leader); },
   render: function() {
     return <div className='win-grid'>
-      <svg height='400px' width='400px'>
+      <svg height='500px' width='500px'>
         <g>
-        {leaders.map((v, k) =>
+        {leaders.map((k, v) =>
           <text
             textAnchor='middle'
             x={ k * 50 + 75 }
             y={ 40 }
             key={ 'x' + v }
-            >{ v }</text>
+            >{ v.slice(0, 2) }</text>
         )}
-        {leaders.map((v, k) =>
+        {leaders.map((k, v) =>
           <text
             textAnchor='middle'
             x={ 32 }
             y={ k * 50 + 81 }
             key={ 'y' + v }
-            >{ v }</text>
+            >{ v.slice(0, 2) }</text>
         )}
-        {this.getData().map((hero, x) => {
-          hero.map((villain, y) => {
-            <g key={ hero + '-' + villain }>
-              <rect
-                className='squares'
-                width='50px'
-                height='50px'
-                x={ d.x * 50 + 50 }
-                y={ d.y * 50 + 50 }
-                style={{ fill: getRecordColor(d.get(record[0], d.record[1])) }}
-                ></rect>
-              <text
-                textAnchor='middle'
-                dx={ d.x * 50 + 73 }
-                dy={ d.y * 50 + 90 }
-                style={{
-                  stroke: '#333333',
-                  strokeWidth: 0.1,
-                  fontSize: '1.3rem',
-                  fontFamily: 'courier',
-                }}
-                >{ d.record[0] + '-' + d.record[1]}</text>
-            </g>
-          })
-        })}
+        {this.getData().map(v =>
+          <g key={v.get('hero'), v.get('villain')}>
+            <rect
+              className='squares'
+              width='50px'
+              height='50px'
+              x={ this.getX(v.get('hero')) * 50 + 50 }
+              y={ this.getX(v.get('villain')) * 50 + 50 }
+              style={{ fill: getRecordColor(v.get('wins', 0), v.get('losses', 0)) }}
+              ></rect>
+            <text
+              textAnchor='middle'
+              dx={ this.getX(v.get('hero')) * 50 + 73 }
+              dy={ this.getX(v.get('villain')) * 50 + 90 }
+              style={{
+                stroke: '#333333',
+                strokeWidth: 0.1,
+                fontSize: '1.3rem',
+                fontFamily: 'courier',
+              }}
+              >{ v.get('wins', 0) + '-' + v.get('losses', 0) }</text>
+          </g>
+        )}
         </g>
       </svg>
     </div>
