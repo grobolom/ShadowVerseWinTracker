@@ -34,26 +34,3 @@ export function getRecordColor(wins, losses) {
 
   return colors[winBucket];
 }
-
-const leaders = fromJS(['fo','sw','ru','sh','bl','dr','ha']);
-
-function buildGrid(leaders) {
-  return leaders.reduce(( reduction, value ) => {
-    return reduction.set(value, leaders.reduce(( r, v ) => {
-      return r.set(v, fromJS([0, 0]));
-    }, Map()));
-  }, Map());
-}
-
-export function getWinMatrix(games = List()) {
-  let grid = buildGrid(leaders);
-  games.map(g => {
-    grid = grid.updateIn([g.get('hero'), g.get('villain')], result => {
-      console.log(g, result, g.get('result'));
-      if (g.get('result') === 'won') return result.update(0, n => n + 1);
-      if (g.get('result') === 'lost') return result.update(1, n => n + 1);
-      return result;
-    });
-  });
-  return grid;
-}
