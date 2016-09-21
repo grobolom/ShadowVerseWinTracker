@@ -1,10 +1,12 @@
 import {List, Map, fromJS} from 'immutable';
 
-export function reduceResults(games) {
+export function reduceResults(games = List()) {
   return games.reduce((reduction, current) => {
     const key = current.get('hero') + ' - ' + current.get('villain');
     const result = current.get('result');
     return reduction.update(key, Map(), pair => {
+      if (!pair.get('hero')) pair = pair.set('hero', current.get('hero'));
+      if (!pair.get('villain')) pair = pair.set('villain', current.get('villain'));
       switch (result) {
         case 'won': return pair.update('wins', 0, g => g += 1);
         case 'lost': return pair.update('losses', 0, g => g += 1);
