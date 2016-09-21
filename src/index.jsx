@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {createStore} from 'redux';
+import {compose, createStore} from 'redux';
+import { persistStore, autoRehydrate } from 'redux-persist'
 import {Provider} from 'react-redux';
 
 import reducer from './reducer';
@@ -15,7 +16,8 @@ require('./normalize.css');
 require('./skeleton.css');
 require('./style.css');
 
-const store = createStore(reducer);
+const store = compose(autoRehydrate())(createStore)(reducer)
+persistStore(store)
 
 ReactDOM.render(
   <Provider store={store}>
