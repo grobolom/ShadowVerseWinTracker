@@ -16,7 +16,7 @@ describe('ResultPicker', () => {
     );
 
     const buttons = scryRenderedDOMComponentsWithTag(component, 'button');
-    expect(buttons.length).to.equal(3);
+    expect(buttons.length).to.equal(2);
     expect(buttons[0].className).to.have.string('selected');
   });
 

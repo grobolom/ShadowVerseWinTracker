@@ -13,8 +13,6 @@ export const StatDisplay = React.createClass({
     return result.get('wins', '0')
       + '-'
       + result.get('losses', '0')
-      + '-'
-      + result.get('d/cs', '0');
   },
   render: function() {
     return <div className="something">
