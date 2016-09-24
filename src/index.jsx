@@ -2,7 +2,7 @@ import React from 'react';
 import { Component } from 'react';
 import ReactDOM from 'react-dom';
 import {compose, createStore} from 'redux';
-import {getStoredState, persistStore, autoRehydrate, createPresistor} from 'redux-persist-immutable';
+import {getStoredState, persistStore, autoRehydrate, createPersistor} from 'redux-persist-immutable';
 import {Provider} from 'react-redux';
 
 import reducer from './reducer';
@@ -16,14 +16,6 @@ if (module.hot) {
 require('./normalize.css');
 require('./skeleton.css');
 require('./style.css');
-
-const persistConfig = {}
-
-getStoredState(persistConfig, (err, restoredState) => {
-  console.log('bacon')
-  const store = createStore(reducer, restoredState)
-  const persistor = createPersistor(store, persistConfig)
-})
 
 const store = createStore(reducer, undefined, autoRehydrate());
 
@@ -43,7 +35,6 @@ class AppProvider extends Component {
     if(!this.state.rehydrated){
       return <div>Loading...</div>
     }
-    console.log(store.getState());
     return (
       <Provider store={store}>
         <WinTracker />
