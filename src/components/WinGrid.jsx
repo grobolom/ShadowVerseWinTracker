@@ -27,7 +27,7 @@ export const WinGrid = React.createClass({
         {leaders.map((k, v) =>
           <text
             textAnchor='middle'
-            x={ k * 50 + 75 }
+            x={ k * 50 + 25 }
             y={ 40 }
             key={ 'x' + v }
             >{ v.slice(0, 2) }</text>
@@ -36,7 +36,7 @@ export const WinGrid = React.createClass({
           <text
             textAnchor='middle'
             x={ 32 }
-            y={ k * 50 + 81 }
+            y={ k * 50 + 31 }
             key={ 'y' + v }
             >{ v.slice(0, 2) }</text>
         )}
@@ -46,14 +46,14 @@ export const WinGrid = React.createClass({
               className='squares'
               width='50px'
               height='50px'
-              x={ this.getX(v.get('hero')) * 50 + 50 }
-              y={ this.getX(v.get('villain')) * 50 + 50 }
+              x={ this.getX(v.get('hero')) * 50 }
+              y={ this.getX(v.get('villain')) * 50 }
               style={{ fill: getRecordColor(v.get('wins', 0), v.get('losses', 0)) }}
               ></rect>
             <text
               textAnchor='middle'
-              dx={ this.getX(v.get('hero')) * 50 + 73 }
-              dy={ this.getX(v.get('villain')) * 50 + 90 }
+              dx={ this.getX(v.get('hero')) * 50 + 23 }
+              dy={ this.getX(v.get('villain')) * 50 + 40 }
               style={{
                 stroke: '#333333',
                 strokeWidth: 0.1,
