@@ -24,6 +24,7 @@
     "react-router": "^2.0.0",
     "redux-persist": "^4.0.0-alpha5",
     "redux-persist-immutable": "^4.0.0-alpha6",
+    "redux-persist-transform-immutable": "^3.2.0",
     "url-loader": "^0.5.7"
   },
   "devDependencies": {
