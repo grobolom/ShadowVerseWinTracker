@@ -10,7 +10,6 @@ export function reduceResults(games = List()) {
       switch (result) {
         case 'won': return pair.update('wins', 0, g => g += 1);
         case 'lost': return pair.update('losses', 0, g => g += 1);
-        case 'd/c': return pair.update('d/cs', 0, g => g += 1);
       };
     });
   }, Map());

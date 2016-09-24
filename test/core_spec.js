@@ -13,21 +13,10 @@ describe('game reducer', () => {
     expect(reduced.get('a - b').get('wins')).to.equal(2);
   });
 
-  it('should calculate disconnects for a leader pair', () => {
-    const games = fromJS([
-      { 'hero': 'a', 'villain': 'b', 'result': 'won' },
-      { 'hero': 'a', 'villain': 'b', 'result': 'lost' },
-      { 'hero': 'a', 'villain': 'b', 'result': 'd/c' },
-    ]);
-    const reduced = reduceResults(games);
-    expect(reduced.get('a - b').get('d/cs')).to.equal(1);
-  });
-
   it('should save the hero and villain with the results', () => {
     const games = fromJS([
       { 'hero': 'a', 'villain': 'b', 'result': 'won' },
       { 'hero': 'a', 'villain': 'b', 'result': 'lost' },
-      { 'hero': 'a', 'villain': 'b', 'result': 'd/c' },
     ]);
     const reduced = reduceResults(games);
     expect(reduced.get('a - b').get('hero')).to.equal('a');

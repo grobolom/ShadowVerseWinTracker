@@ -22,7 +22,7 @@ export default (state = initialState, action) => {
 };
 
 function setResult(state, result) {
-  if (result === 'won' || result === 'lost' || result === 'd/c') {
+  if (result === 'won' || result === 'lost') {
     return state.set('result', result);
   }
   return state;
