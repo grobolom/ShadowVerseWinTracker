@@ -41,7 +41,7 @@ export const WinGrid = React.createClass({
             >{ v.slice(0, 2) }</text>
         )}
         {this.getData().map(v =>
-          <g key={v.get('hero'), v.get('villain')}>
+          <g key={v.get('hero') + '-' + v.get('villain')}>
             <rect
               className='squares'
               width='50px'
