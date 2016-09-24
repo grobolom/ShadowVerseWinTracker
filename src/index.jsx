@@ -1,7 +1,8 @@
 import React from 'react';
+import { Component } from 'react';
 import ReactDOM from 'react-dom';
 import {compose, createStore} from 'redux';
-import { persistStore, autoRehydrate } from 'redux-persist'
+import {persistStore, autoRehydrate} from 'redux-persist-immutable';
 import {Provider} from 'react-redux';
 
 import reducer from './reducer';
@@ -16,12 +17,34 @@ require('./normalize.css');
 require('./skeleton.css');
 require('./style.css');
 
-const store = compose(autoRehydrate())(createStore)(reducer)
-persistStore(store)
+const store = createStore(reducer, undefined, autoRehydrate());
+
+class AppProvider extends Component {
+  constructor() {
+    super()
+    this.state = { rehydrated: false }
+  }
+
+  componentWillMount() {
+    persistStore(store, {}, () => {
+      this.setState({ rehydrated: true })
+    })
+  }
+
+  render() {
+    if(!this.state.rehydrated){
+      return <div>Loading...</div>
+    }
+    console.log(store.getState());
+    return (
+      <Provider store={store}>
+        <WinTracker />
+      </Provider>
+    )
+  }
+}
 
 ReactDOM.render(
-  <Provider store={store}>
-    <WinTracker />
-  </Provider>,
+  <AppProvider />,
   document.getElementById('app')
 );
