@@ -1,6 +1,13 @@
-import {Map, List} from 'immutable';
+import {Map, List, fromJS} from 'immutable';
 
-export default (state = Map(), action) => {
+const initialState = fromJS({
+  'hero': undefined,
+  'villain': undefined,
+  'result': undefined,
+  'games': [],
+});
+
+export default (state = initialState, action) => {
   switch (action.type) {
     case 'SET_RESULT':
       return setResult(state, action.result);
