@@ -48,6 +48,18 @@ describe('root reducer', () => {
     }]));
   });
 
+  it('should not save an invalid game result', () => {
+    const initialState = Map({
+      'hero': 'forestcraft',
+      'villain': '',
+      'result': 'lost',
+    });
+    const action = { 'type': 'SAVE_RESULT' };
+    const nextState = reducer(initialState, action);
+
+    expect(nextState.get('games')).to.equal(fromJS([]));
+  });
+
   it('should reset the state partially after saving', () => {
     const initialState = Map({
       'hero': 'forestcraft',
