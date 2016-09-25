@@ -8,7 +8,11 @@ export const ActionBar = React.createClass({
     return <div className='section row'>
       <button
         className='button'
-        onClick={() => this.props.save()}
+        onClick={() => this.props.save(
+          this.props.hero,
+          this.props.villain,
+          this.props.result
+        )}
       >save</button>
       <button
         className='button'

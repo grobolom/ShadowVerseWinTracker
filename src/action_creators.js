@@ -13,8 +13,13 @@ export function selectLeader(player, leader) {
   };
 }
 
-export function save() {
-  return { type: 'SAVE_RESULT' };
+export function save(hero, villain, result) {
+  return {
+    type: 'SAVE_RESULT',
+    hero,
+    villain,
+    result,
+  };
 }
 
 export function reset() {

@@ -16,7 +16,7 @@ export default (state = initialState, action) => {
     case 'SELECT_VILLAIN':
       return selectVillain(state, action.leader);
     case 'SAVE_RESULT':
-      return saveResults(state);
+      return saveResults(state, action.hero, action.villain, action.result);
     case 'RESET_GAMES':
       return resetGames(state);
   }
@@ -38,6 +38,7 @@ function selectVillain(state, leader) {
   return state.set('villain', leader);
 }
 
+/*
 function saveResults(state) {
   if (state.get('villain') == undefined ||
       state.get('villain') == '') {
@@ -52,6 +53,21 @@ function saveResults(state) {
   return state.set('villain', undefined)
               .set('result', undefined)
               .update('games', List(), g => g.push(game))
+}
+*/
+
+function saveResults(state, hero, villain, result) {
+  if (villain == '' || villain == undefined) return state;
+
+  const game = Map({
+    hero,
+    villain,
+    result,
+  });
+
+  return state.set('villain', undefined)
+              .set('result', undefined)
+              .update('games', List(), g => g.push(game));
 }
 
 function resetGames(state) {

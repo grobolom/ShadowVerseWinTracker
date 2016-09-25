@@ -38,7 +38,12 @@ describe('root reducer', () => {
       'villain': 'shadowcraft',
       'result': 'lost',
     });
-    const action = { 'type': 'SAVE_RESULT' };
+    const action = {
+      'type': 'SAVE_RESULT',
+      'hero': 'forestcraft',
+      'villain': 'shadowcraft',
+      'result': 'lost',
+    };
     const nextState = reducer(initialState, action);
 
     expect(nextState.get('games')).to.equal(fromJS([{
@@ -55,7 +60,13 @@ describe('root reducer', () => {
       'result': 'lost',
       'games': List(),
     });
-    const action = { 'type': 'SAVE_RESULT' };
+    const action = {
+      'type': 'SAVE_RESULT',
+      'hero': 'forestcraft',
+      'villain': '',
+      'result': 'lost',
+      'games': List(),
+    };
     let nextState = reducer(initialState, action);
 
     expect(nextState.get('games')).to.equal(fromJS([]));
@@ -76,7 +87,12 @@ describe('root reducer', () => {
       'villain': 'shadowcraft',
       'result': 'lost',
     });
-    const action = { 'type': 'SAVE_RESULT' };
+    const action = {
+      'type': 'SAVE_RESULT',
+      'hero': 'forestcraft',
+      'villain': 'shadowcraft',
+      'result': 'lost',
+    };
     const nextState = reducer(initialState, action);
 
     expect(nextState.get('hero')).to.equal('forestcraft');
