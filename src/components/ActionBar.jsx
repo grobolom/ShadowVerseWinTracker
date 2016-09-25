@@ -10,6 +10,7 @@ export const ActionBar = React.createClass({
         className='button'
         onClick={() => this.props.save()}
       >save</button>
+      <button className='button'>&#8630;</button>
       <button className='button'>stats</button>
     </div>
   }
