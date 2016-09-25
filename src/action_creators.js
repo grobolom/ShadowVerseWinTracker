@@ -16,3 +16,7 @@ export function selectLeader(player, leader) {
 export function save() {
   return { type: 'SAVE_RESULT' };
 }
+
+export function reset() {
+  return { type: 'RESET_GAMES' };
+}
