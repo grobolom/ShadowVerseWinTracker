@@ -73,4 +73,17 @@ describe('root reducer', () => {
     expect(nextState.get('villain')).to.equal(undefined);
     expect(nextState.get('result')).to.equal(undefined);
   });
+
+  it('should reset the tracked games for debugging', () => {
+    const initialState = fromJS({
+      'games': [
+        { 'hero': 'some', 'villain': 'some', 'result': 'some' },
+        { 'hero': 'other', 'villain': 'other', 'result': 'other' },
+      ]
+    });
+    const action = { 'type': 'RESET_GAMES' };
+    const nextState = reducer(initialState, action);
+
+    expect(nextState.get('games')).to.equal(List());
+ });
 });

@@ -17,6 +17,8 @@ export default (state = initialState, action) => {
       return selectVillain(state, action.leader);
     case 'SAVE_RESULT':
       return saveResults(state);
+    case 'RESET_GAMES':
+      return resetGames(state);
   }
   return state;
 };
@@ -45,4 +47,8 @@ function saveResults(state) {
   return state.set('villain', undefined)
               .set('result', undefined)
               .update('games', List(), g => g.push(game))
+}
+
+function resetGames(state) {
+  return state.set('games', List());
 }
