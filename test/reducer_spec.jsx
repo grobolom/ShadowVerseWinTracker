@@ -12,14 +12,6 @@ describe('root reducer', () => {
     }));
   });
 
-  it('should set the state with an undefined initial state', () => {
-    const action = { type: 'SET_RESULT', 'result': 'won' };
-    const nextState = reducer(undefined, action);
-    expect(nextState).to.equal(fromJS({
-      'result': 'won',
-    }));
-  });
-
   it('should select a hero', () => {
     const initialState = Map();
     const action = { 'type': 'SELECT_HERO', 'leader': 'Forestcraft' }
