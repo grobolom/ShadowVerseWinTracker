@@ -8,14 +8,6 @@ export const ActionBar = React.createClass({
     return <div className='section row'>
       <button
         className='button'
-        onClick={() => this.props.save(
-          this.props.hero,
-          this.props.villain,
-          this.props.result
-        )}
-      >save</button>
-      <button
-        className='button'
         onClick={() => this.props.reset()}>&#8630;</button>
       <button className='button'>stats</button>
     </div>
@@ -23,11 +15,7 @@ export const ActionBar = React.createClass({
 });
 
 const mapStateToProps = function(state) {
-  return {
-    hero: state.get('hero'),
-    villain: state.get('villain'),
-    result: state.get('result'),
-  };
+  return { };
 };
 
 export const ActionBarComponent = connect(

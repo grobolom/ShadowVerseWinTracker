@@ -11,7 +11,7 @@ export const ResultPicker = React.createClass({
         <button
           className={result == this.props.selected ? 'selected button' : 'button'}
           key={result}
-          onClick={() => { this.props.setResult(result); }}
+          onClick={() => { this.props.save(this.props.hero, this.props.villain, result); }}
           >
           {result}
         </button>
@@ -22,7 +22,9 @@ export const ResultPicker = React.createClass({
 
 const mapStateToProps = function(state) {
   return {
-    selected: state.get('result')
+    hero: state.get('hero'),
+    villain: state.get('villain'),
+    selected: state.get('result'),
   };
 };
 
