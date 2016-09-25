@@ -39,6 +39,11 @@ function selectVillain(state, leader) {
 }
 
 function saveResults(state) {
+  if (state.get('villain') == undefined ||
+      state.get('villain') == '') {
+    return state;
+  }
+
   const game = Map({
     'hero': state.get('hero'),
     'villain': state.get('villain'),
