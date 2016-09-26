@@ -19,6 +19,8 @@ export default (state = initialState, action) => {
       return saveResults(state, action.hero, action.villain, action.result);
     case 'RESET_GAMES':
       return resetGames(state);
+    case 'UNDO':
+      return undo(state);
   }
   return state;
 };
@@ -54,4 +56,17 @@ function saveResults(state, hero, villain, result) {
 
 function resetGames(state) {
   return state.set('games', List());
+}
+
+function undo(state) {
+  const lastGame = state.get('games').last();
+
+  if (lastGame == undefined) {
+    return state;
+  }
+
+  return state.set('hero', lastGame.get('hero'))
+              .set('villain', lastGame.get('villain'))
+              .set('result', lastGame.get('result'))
+              .update('games', g => g.pop());
 }

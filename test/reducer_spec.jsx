@@ -112,4 +112,27 @@ describe('root reducer', () => {
 
     expect(nextState.get('games')).to.equal(List());
  });
+
+ it('should undo the last saved game', () => {
+   const initialState = fromJS({
+     'hero': 'wut',
+     'villain': 'wut',
+     'result': undefined,
+     'games': [
+       { 'hero': 'some', 'villain': 'some', 'result': 'some' },
+       { 'hero': 'other', 'villain': 'other', 'result': 'other' },
+     ]
+   });
+   const action = { 'type': 'UNDO' };
+   const nextState = reducer(initialState, action);
+
+   expect(nextState).to.equal(fromJS({
+     'hero': 'other',
+     'villain': 'other',
+     'result': 'other',
+     'games': [
+       { 'hero': 'some', 'villain': 'some', 'result': 'some' },
+     ]
+   }));
+ });
 });
