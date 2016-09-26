@@ -8,7 +8,7 @@ export const ActionBar = React.createClass({
     return <div className='section row'>
       <button
         className='button'
-        onClick={() => this.props.reset()}>&#8630;</button>
+        onClick={() => this.props.undo()}>&#8630;</button>
       <button className='button'>stats</button>
     </div>
   }
