@@ -15,21 +15,21 @@ export const WinGrid = React.createClass({
     return <div className='win-grid'>
       <svg height='500px' width='500px'>
         <g>
-        {leaders.map((k, v) =>
+        {leaders.entrySeq().map(v =>
           <text
             textAnchor='middle'
-            x={ k * 50 + 25 }
+            x={ v[0] * 50 + 25 }
             y={ 40 }
-            key={ 'x' + v }
-            >{ v.slice(0, 2) }</text>
+            key={ 'x' + v[1] }
+            >{ v[1].slice(0, 2) }</text>
         )}
-        {leaders.map((k, v) =>
+        {leaders.entrySeq().map(v =>
           <text
             textAnchor='middle'
             x={ 32 }
-            y={ k * 50 + 31 }
-            key={ 'y' + v }
-            >{ v.slice(0, 2) }</text>
+            y={ v[0] * 50 + 31 }
+            key={ 'y' + v[1] }
+            >{ v[1].slice(0, 2) }</text>
         )}
         {this.getData().map(v =>
           <GridSquare
