@@ -15,7 +15,7 @@ export function reduceResults(games = List()) {
   }, Map());
 };
 
-const colors = {
+export const colors = {
   '5': '#009c1a',
   '4': '#22b600',
   '3': '#26cc00',
