@@ -4,6 +4,7 @@ import {List, Map, Range, fromJS} from 'immutable';
 
 import * as actionCreators from '../action_creators';
 import {getRecordColor, reduceResults} from '../core';
+import {GridSquare} from './GridSquare'
 
 const leaders = fromJS({
   'forestcraft': 1,
@@ -41,27 +42,12 @@ export const WinGrid = React.createClass({
             >{ v.slice(0, 2) }</text>
         )}
         {this.getData().map(v =>
-          <g key={v.get('hero') + '-' + v.get('villain')}>
-            <rect
-              className='squares'
-              width='50px'
-              height='50px'
-              x={ this.getX(v.get('hero')) * 50 }
-              y={ this.getX(v.get('villain')) * 50 }
-              style={{ fill: getRecordColor(v.get('wins', 0), v.get('losses', 0)) }}
-              ></rect>
-            <text
-              textAnchor='middle'
-              dx={ this.getX(v.get('hero')) * 50 + 23 }
-              dy={ this.getX(v.get('villain')) * 50 + 40 }
-              style={{
-                stroke: '#333333',
-                strokeWidth: 0.1,
-                fontSize: '1.3rem',
-                fontFamily: 'courier',
-              }}
-              >{ v.get('wins', 0) + '-' + v.get('losses', 0) }</text>
-          </g>
+          <GridSquare
+            key={ v.get('hero') + v.get('villain') }
+            hero={ v.get('hero') }
+            villain={ v.get('villain') }
+            wins={ v.get('wins', 0) }
+            losses={ v.get('losses', 0) } />
         )}
         </g>
       </svg>
