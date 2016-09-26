@@ -25,3 +25,7 @@ export function save(hero, villain, result) {
 export function reset() {
   return { type: 'RESET_GAMES' };
 }
+
+export function undo() {
+  return { type: 'UNDO' };
+}
