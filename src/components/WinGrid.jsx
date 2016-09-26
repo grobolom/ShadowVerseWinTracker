@@ -3,18 +3,8 @@ import {connect} from 'react-redux';
 import {List, Map, Range, fromJS} from 'immutable';
 
 import * as actionCreators from '../action_creators';
-import {getRecordColor, reduceResults} from '../core';
+import {getRecordColor, reduceResults, leaders} from '../core';
 import {GridSquare} from './GridSquare'
-
-const leaders = fromJS({
-  'forestcraft': 1,
-  'swordcraft': 2,
-  'runecraft': 3,
-  'dragoncraft': 4,
-  'shadowcraft': 5,
-  'bloodcraft': 6,
-  'havencraft': 7,
-});
 
 export const WinGrid = React.createClass({
   getData: function() {

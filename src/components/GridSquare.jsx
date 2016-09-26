@@ -1,17 +1,7 @@
 import React from 'react';
 import {fromJS} from 'immutable';
 
-import {getRecordColor} from '../core';
-
-const leaders = fromJS({
-  'forestcraft': 1,
-  'swordcraft': 2,
-  'runecraft': 3,
-  'dragoncraft': 4,
-  'shadowcraft': 5,
-  'bloodcraft': 6,
-  'havencraft': 7,
-});
+import {getRecordColor, leaders} from '../core';
 
 export const GridSquare = React.createClass({
   getKey: function() { return this.props.hero + '-' + this.props.villain },

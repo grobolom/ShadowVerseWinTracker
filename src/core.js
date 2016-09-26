@@ -24,6 +24,16 @@ const colors = {
   'na': '#e1e1e1',
 }
 
+export const leaders = fromJS({
+  'forestcraft': 1,
+  'swordcraft': 2,
+  'runecraft': 3,
+  'dragoncraft': 4,
+  'shadowcraft': 5,
+  'bloodcraft': 6,
+  'havencraft': 7,
+});
+
 export function getRecordColor(wins, losses) {
   const total = wins + losses;
   if (wins == 0) return colors['na']; // this covers total == 0 also
