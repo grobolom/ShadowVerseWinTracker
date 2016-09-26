@@ -20,7 +20,7 @@ export const GridSquare = React.createClass({
   getX: function() { return leaders.get(this.props.hero) },
   getY: function() { return leaders.get(this.props.villain) },
   render: function() {
-    return <g key={ this.getKey() }>
+    return <g >
       <rect
         className='squares'
         width='50px'
