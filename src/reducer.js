@@ -38,24 +38,6 @@ function selectVillain(state, leader) {
   return state.set('villain', leader);
 }
 
-/*
-function saveResults(state) {
-  if (state.get('villain') == undefined ||
-      state.get('villain') == '') {
-    return state;
-  }
-
-  const game = Map({
-    'hero': state.get('hero'),
-    'villain': state.get('villain'),
-    'result': state.get('result'),
-  });
-  return state.set('villain', undefined)
-              .set('result', undefined)
-              .update('games', List(), g => g.push(game))
-}
-*/
-
 function saveResults(state, hero, villain, result) {
   if (villain == '' || villain == undefined) return state;
 
